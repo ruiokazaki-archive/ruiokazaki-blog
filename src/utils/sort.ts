@@ -1,6 +1,7 @@
 import type { Post } from "@type/post";
+import type { MDXInstance } from "astro";
 
-const sort = (allPosts: Post[]) =>
+const sort = (allPosts: MDXInstance<Post>[]) =>
   allPosts.sort(
     (a, b) =>
       new Date(b.frontmatter.date).valueOf() -
