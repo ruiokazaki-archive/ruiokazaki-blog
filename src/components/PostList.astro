@@ -9,5 +9,38 @@ const { posts } = Astro.props;
 ---
 
 <section>
-  {posts.map((post) => <PostCard post={post} />)}
+  <!-- {posts.map((post) => <PostCard post={post} />)} -->
+  <div class="card">card</div>
+  <div class="card">card</div>
+  <div class="card">card</div>
+  <div class="card">card</div>
+  <div class="card">card</div>
+  <div class="card">card</div>
+  <div class="card">card</div>
+  <div class="card">card</div>
+  <div class="card">card</div>
+  <div class="card">card</div>
+  <div class="card">card</div>
+  <div class="card">card</div>
 </section>
+
+<style lang="scss">
+  section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+    grid-gap: 1rem;
+
+    @media only screen and (max-width: 37.5rem) {
+      grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+      grid-gap: 0.5rem;
+    }
+  }
+  .card {
+    border: 1px solid #ccc;
+    height: 300px;
+
+    @media only screen and (max-width: 37.5rem) {
+      height: 200px;
+    }
+  }
+</style>

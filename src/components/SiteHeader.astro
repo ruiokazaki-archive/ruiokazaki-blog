@@ -9,15 +9,19 @@ const snsIds = {
 
 <header>
   <div class="wrap">
-    <h2>
-      <a href="/">RuiOkazaki.blog</a>
-    </h2>
-    <div>
+    <nav>
+      <ul>
+        <li><a href="/">About</a></li>
+        <li><a href="/">Blog</a></li>
+        <li><a href="/">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="links">
       <a href={`https://twitter.com/${snsIds.twitter}`} target="_blank">
-        <BrandTwitter size={"1.5rem"} />
+        <BrandTwitter size={"1.1rem"} />
       </a>
       <a href={`https://github.com/${snsIds.github}`} target="_blank">
-        <BrandGithub size={"1.5rem"} />
+        <BrandGithub size={"1.1rem"} />
       </a>
     </div>
   </div>
@@ -26,22 +30,35 @@ const snsIds = {
 <style lang="scss">
   header {
     width: 100%;
-    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 18px -1px rgb(32 32 37 / 15%);
   }
   .wrap {
     max-width: 50rem;
     width: 95%;
     margin-inline: auto;
-    padding-block: 0.8rem;
   }
-  h2 {
-    font-size: 1.2rem;
-    @media only screen and (max-width: 37.5rem) {
-      font-size: 1rem;
+  ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    li {
+      height: 70px;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding-inline: 0.8rem;
+        font-weight: bold;
+        font-size: 0.75rem;
+        &:hover {
+          color: #3b82f6;
+        }
+      }
     }
   }
-  header,
-  div,
+  .wrap,
+  .links,
   a {
     display: flex;
     align-items: center;
