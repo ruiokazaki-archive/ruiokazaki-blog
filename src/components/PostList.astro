@@ -1,9 +1,12 @@
 ---
 import PostCard from "@components/PostCard.astro";
+import type { Post } from "@type/post";
+
+type Props = { posts: Post[] };
 
 const { posts } = Astro.props;
 ---
 
 <section>
-  {posts.map((p) => <PostCard post={p} />)}
+  {posts.map((post) => <PostCard post={post} />)}
 </section>
