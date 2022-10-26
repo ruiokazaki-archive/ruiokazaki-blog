@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const allPosts = await Astro.glob("../../contents/*.mdx");
+  const allSortedPosts = allPosts.sort(
+    (a, b) =>
+      new Date(b.frontmatter.date).valueOf() -
+      new Date(a.frontmatter.date).valueOf()
+  );
+
+  return allSortedPosts.map((post) => ({
+    params: { slug: post.frontmatter.slug },
+    props: { ...post },
+  }));
+}
+
+const { Content, frontmatter } = Astro.props;
+const title = frontmatter.title;
+const description = `この記事では、${frontmatter.title}を掲載します。`;
+---
+
+<BaseLayout title={title}>
+  <h1>{title}</h1>
+  <Content />
+</BaseLayout>
