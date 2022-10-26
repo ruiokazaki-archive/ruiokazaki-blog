@@ -1,0 +1,48 @@
+---
+import SiteHeader from "../components/SiteHeader.astro";
+import "ress";
+
+const titleTemplate = (title?: string) => {
+  const blogTitle = "RuiOkazaki.blog";
+  return title ? `${title} | ${blogTitle}` : blogTitle;
+};
+
+type Props = {
+  title?: string;
+};
+const { title } = Astro.props;
+---
+
+<html lang="ja">
+  <head>
+    <title>{titleTemplate(title)}</title>
+    <meta charset="UTF-8" />
+  </head>
+  <SiteHeader />
+  <main>
+    <slot />
+  </main>
+
+  <style is:global lang="scss">
+    * {
+      color: #333;
+    }
+    body {
+      width: 100%;
+    }
+    main {
+      margin-inline: auto;
+      width: 90%;
+      max-width: 50rem;
+      @media only screen and (max-width: 37.5rem) {
+        width: 100%;
+        padding-inline: 0.5rem;
+      }
+    }
+    a {
+      text-decoration: none;
+    }
+  </style>
+
+
+</html>
