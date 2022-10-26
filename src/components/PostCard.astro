@@ -7,20 +7,87 @@ type Props = { post: MDXInstance<Post> };
 const { post } = Astro.props;
 
 const {
-  frontmatter: { slug, title, date },
+  frontmatter: { slug, title, date, tags },
 } = post;
 ---
 
 <article>
-  <h3 class="font-size-1">
+  <figure>
+    <a href={`/post/${slug}`}>
+      <img src={"/contents/make-blog-with-astro/thumbnail.jpg"} alt="" />
+    </a>
+  </figure>
+  <ul class="tags">
+    {
+      // TODO tag/${tag} にリンク
+      tags.map((tag) => (
+        <li>
+          <a href={`/`}>{tag}</a>
+        </li>
+      ))
+    }
+  </ul>
+  <h3>
     <a href={`/post/${slug}`}>{title}</a>
   </h3>
-  <div class="meta-information">
-    <p>
-      <span>Published in</span>
-      <time class="capitalize" datetime={date}>{date}</time>
-    </p>
-  </div>
+  <p class="capitalize">
+    <time datetime={date}>{date}</time>
+  </p>
 </article>
 
-<style lang="scss"></style>
+<style lang="scss">
+  article {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    @media only screen and (max-width: 37.5rem) {
+      height: 200px;
+    }
+  }
+  figure {
+    margin-bottom: 0.2rem;
+    img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      border-radius: 2px;
+      box-shadow: 0 15px 18px -15px rgb(32 32 37 / 25%);
+      &:hover {
+        filter: brightness(0.8);
+      }
+    }
+  }
+  .tags {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.875rem;
+    a {
+      color: #9ca3af;
+      &:hover {
+        color: #3b82f6;
+      }
+    }
+  }
+  h3 {
+    a {
+      font-size: 1.4rem;
+      height: calc(1.4 * 1.4 * 2rem);
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      // overflow: hidden;
+      // text-overflow: ellipsis;
+    }
+    &:hover {
+      text-decoration: underline 2px;
+      text-underline-offset: 2px;
+    }
+  }
+  .capitalize {
+    text-align: end;
+    font-size: 0.75rem;
+  }
+</style>
