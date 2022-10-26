@@ -1,0 +1,76 @@
+---
+import { BrandTwitter, BrandGithub } from "tabler-icons-react";
+
+const snsIds = {
+  twitter: "RuiOkazaki_",
+  github: "RuiOkazaki",
+};
+---
+
+<footer>
+  <div>
+    Thanks for the visit! &copy; 2020 / Follow:
+    <a href={`https://twitter.com/${snsIds.twitter}`} target="_blank">
+      <BrandTwitter size={"1.1rem"} />
+    </a>
+    <a href={`https://github.com/${snsIds.github}`} target="_blank">
+      <BrandGithub size={"1.1rem"} />
+    </a>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="/">About</a></li>
+      <li><a href="/">Blog</a></li>
+      <li><a href="/">Contact</a></li>
+    </ul>
+  </nav>
+</footer>
+
+<style lang="scss">
+  footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    * {
+      color: #9ca3af;
+    }
+  }
+  div {
+    max-width: 50rem;
+    width: 95%;
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    font-size: 0.8rem;
+    gap: 0.4rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    li {
+      height: 70px;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding-inline: 0.8rem;
+        font-size: 0.75rem;
+        &:hover {
+          color: #3b82f6;
+        }
+      }
+    }
+  }
+  .wrap,
+  .links,
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+</style>
