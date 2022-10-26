@@ -1,5 +1,6 @@
 ---
 import BlogTitle from "@components/BlogTitle.astro";
+import HorizonalLine from "@components/HorizonalLine.astro";
 import SiteHeader from "@components/SiteHeader.astro";
 import "ress";
 
@@ -22,6 +23,7 @@ const { title } = Astro.props;
   <SiteHeader />
   <main>
     <BlogTitle />
+    <HorizonalLine />
     <slot />
   </main>
 

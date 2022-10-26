@@ -1,5 +1,6 @@
 ---
-import PostCard from "@components/PostCard.astro";
+import { Image } from "@astrojs/image/components";
+
 import type { Post } from "@type/post";
 import type { MDXInstance } from "astro";
 
@@ -10,18 +11,13 @@ const { posts } = Astro.props;
 
 <section>
   <!-- {posts.map((post) => <PostCard post={post} />)} -->
-  <div class="card">card</div>
-  <div class="card">card</div>
-  <div class="card">card</div>
-  <div class="card">card</div>
-  <div class="card">card</div>
-  <div class="card">card</div>
-  <div class="card">card</div>
-  <div class="card">card</div>
-  <div class="card">card</div>
-  <div class="card">card</div>
-  <div class="card">card</div>
-  <div class="card">card</div>
+  <div class="card">
+    <figure>
+      <a href="">
+        <img src={"/contents/make-blog-with-astro/thumbnail.jpg"} alt="" />
+      </a>
+    </figure>
+  </div>
 </section>
 
 <style lang="scss">
