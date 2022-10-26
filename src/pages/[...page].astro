@@ -3,6 +3,10 @@ import Pagination from "@components/Pagination.astro";
 import PostList from "@components/PostList.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
+import type { Page } from "@type/common";
+import type { Post } from "@type/post";
+type Props = Page<Post>;
+
 export async function getStaticPaths({ paginate }) {
   const PAGE_SIZE = 12;
   const allPosts = await Astro.glob("./../contents/*.mdx");
