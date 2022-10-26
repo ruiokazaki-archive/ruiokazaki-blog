@@ -1,0 +1,21 @@
+---
+const { post } = Astro.props;
+
+const {
+  frontmatter: { slug, title, date },
+} = post;
+---
+
+<article>
+  <h3 class="font-size-1">
+    <a href={`/post/${slug}`}>{title}</a>
+  </h3>
+  <div class="meta-information">
+    <p>
+      <span>Published in</span>
+      <time class="capitalize" datetime={date}>{date}</time>
+    </p>
+  </div>
+</article>
+
+<style lang="scss"></style>
