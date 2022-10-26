@@ -1,0 +1,51 @@
+---
+import { BrandTwitter, BrandGithub } from "tabler-icons-react";
+
+const snsIds = {
+  twitter: "RuiOkazaki_",
+  github: "RuiOkazaki",
+};
+---
+
+<header>
+  <div class="wrap">
+    <h2>
+      <a href="/">RuiOkazaki.blog</a>
+    </h2>
+    <div>
+      <a href={`https://twitter.com/${snsIds.twitter}`} target="_blank">
+        <BrandTwitter size={"1.5rem"} />
+      </a>
+      <a href={`https://github.com/${snsIds.github}`} target="_blank">
+        <BrandGithub size={"1.5rem"} />
+      </a>
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  header {
+    width: 100%;
+    border-bottom: 1px solid #eee;
+  }
+  .wrap {
+    max-width: 50rem;
+    width: 95%;
+    margin-inline: auto;
+    padding-block: 0.8rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+    @media only screen and (max-width: 37.5rem) {
+      font-size: 1rem;
+    }
+  }
+  header,
+  div,
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+</style>
