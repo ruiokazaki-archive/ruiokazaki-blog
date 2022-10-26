@@ -1,9 +1,26 @@
 ---
+import type { Post } from "@type/post";
+import type { MDXInstance } from "astro";
 import PostCard from "@components/PostCard.astro";
+
+type Props = { posts: MDXInstance<Post>[] };
 
 const { posts } = Astro.props;
 ---
 
 <section>
-  {posts.map((p) => <PostCard post={p} />)}
+  {posts.map((post) => <PostCard post={post} />)}
 </section>
+
+<style lang="scss">
+  section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+    grid-gap: 3rem;
+
+    @media only screen and (max-width: 37.5rem) {
+      grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+      grid-gap: 0.5rem;
+    }
+  }
+</style>

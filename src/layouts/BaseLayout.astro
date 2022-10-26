@@ -1,4 +1,7 @@
 ---
+import BlogTitle from "@components/BlogTitle.astro";
+import HorizonalLine from "@components/HorizonalLine.astro";
+import SiteFooter from "@components/SiteFooter.astro";
 import SiteHeader from "@components/SiteHeader.astro";
 import "ress";
 
@@ -20,18 +23,27 @@ const { title } = Astro.props;
   </head>
   <SiteHeader />
   <main>
-    <slot />
+    <BlogTitle />
+    <HorizonalLine />
+    <div class="contents">
+      <slot />
+    </div>
+    <HorizonalLine />
   </main>
+  <SiteFooter />
 
   <style is:global lang="scss">
     * {
       color: #333;
+      transition: all 0.2s ease-in-out;
     }
     body {
       width: 100%;
     }
+
     main {
       margin-inline: auto;
+      padding-block: 1rem;
       width: 90%;
       max-width: 50rem;
       @media only screen and (max-width: 37.5rem) {
@@ -39,8 +51,34 @@ const { title } = Astro.props;
         padding-inline: 0.5rem;
       }
     }
+
     a {
       text-decoration: none;
+    }
+    ul {
+      list-style: none;
+    }
+    svg {
+      stroke: #333;
+      &:hover {
+        stroke: #3b82f6;
+      }
+    }
+    footer {
+      svg {
+        stroke: #9ca3af;
+        fill: #9ca3af;
+
+        &:hover {
+          stroke: #3b82f6;
+          fill: #3b82f6;
+        }
+      }
+    }
+  </style>
+  <style lang="scss">
+    .contents {
+      min-height: 60vh;
     }
   </style>
 

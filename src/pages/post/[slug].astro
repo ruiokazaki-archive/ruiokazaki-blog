@@ -6,7 +6,9 @@ import type { Post } from "@type/post";
 type Props = Post;
 
 export async function getStaticPaths() {
-  const allPosts = await Astro.glob("./../../contents/*.mdx");
+  const allPosts = await Astro.glob<Post>(
+    "../../../public/contents/**/index.mdx"
+  );
   const allSortedPosts = sort(allPosts);
 
   return allSortedPosts.map((post) => ({
