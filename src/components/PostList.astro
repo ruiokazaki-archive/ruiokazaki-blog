@@ -1,8 +1,9 @@
 ---
 import PostCard from "@components/PostCard.astro";
 import type { Post } from "@type/post";
+import type { MDXInstance } from "astro";
 
-type Props = { posts: Post[] };
+type Props = { posts: MDXInstance<Post>[] };
 
 const { posts } = Astro.props;
 ---
