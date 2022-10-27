@@ -33,12 +33,16 @@ const { title } = Astro.props;
   <SiteFooter />
 
   <style is:global lang="scss">
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&display=swap");
     * {
       color: #333;
       transition: all 0.2s ease-in-out;
     }
     body {
       width: 100%;
+      font-family: "Yu Gothic", 游ゴシック, YuGothic, "ヒラギノ角ゴ Pro W3",
+        "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "Noto Sans JP",
+        "ＭＳ Ｐゴシック", sans-serif;
     }
 
     main {
@@ -62,6 +66,11 @@ const { title } = Astro.props;
       stroke: #333;
       &:hover {
         stroke: #3b82f6;
+      }
+    }
+    .tags {
+      svg {
+        stroke: #9ca3af;
       }
     }
     footer {

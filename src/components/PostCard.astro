@@ -1,4 +1,6 @@
 ---
+import { Tags, Clock } from "tabler-icons-react";
+
 import type { Post } from "@type/post";
 import type { MDXInstance } from "astro";
 
@@ -17,20 +19,23 @@ const {
       <img src={"/contents/make-blog-with-astro/thumbnail.jpg"} alt="" />
     </a>
   </figure>
-  <ul class="tags">
-    {
-      // TODO tag/${tag} にリンク
-      tags.map((tag) => (
-        <li>
-          <a href={`/`}>{tag}</a>
-        </li>
-      ))
-    }
-  </ul>
+  <div class="tags">
+    <Tags size={"1.2rem"} />
+    <ul>
+      {
+        tags.map((tag) => (
+          <li>
+            <a href={`/`}>{tag}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
   <h3>
     <a href={`/post/${slug}`}>{title}</a>
   </h3>
   <p class="capitalize">
+    <Clock size={"1rem"} />
     <time datetime={date}>{date}</time>
   </p>
 </article>
@@ -61,8 +66,13 @@ const {
   }
   .tags {
     display: flex;
-    gap: 1rem;
-    font-size: 0.875rem;
+    align-items: center;
+    gap: 0.5rem;
+    ul {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+    }
     a {
       color: #9ca3af;
       &:hover {
@@ -78,8 +88,6 @@ const {
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
-      // overflow: hidden;
-      // text-overflow: ellipsis;
     }
     &:hover {
       text-decoration: underline 2px;
@@ -87,7 +95,10 @@ const {
     }
   }
   .capitalize {
-    text-align: end;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.2rem;
     font-size: 0.75rem;
   }
 </style>
