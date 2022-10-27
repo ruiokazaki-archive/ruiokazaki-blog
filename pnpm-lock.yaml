@@ -15,6 +15,7 @@ specifiers:
   ress: ^5.0.2
   sass: ^1.55.0
   tabler-icons-react: ^1.55.0
+  zenn-content-css: ^0.1.131
 
 dependencies:
   "@astrojs/mdx": 0.11.4
@@ -25,6 +26,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   tabler-icons-react: 1.55.0_react@18.2.0
+  zenn-content-css: 0.1.131
 
 devDependencies:
   husky: 8.0.1
@@ -5894,6 +5896,13 @@ packages:
         integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==,
       }
     engines: { node: ">=10" }
+    dev: false
+
+  /zenn-content-css/0.1.131:
+    resolution:
+      {
+        integrity: sha512-Xvs/7nJdJcdq0xjfwZO+VCwJsPN/uUgUaf4AvQXAApJ2hz8/rxA4L9rGi+PVRV/2a9ELMxmq/EoR3GDSZupFOg==,
+      }
     dev: false
 
   /zod/3.19.1:
