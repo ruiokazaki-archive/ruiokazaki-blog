@@ -1,9 +1,12 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import sort from "@utils/sort";
+import "zenn-content-css";
 
 import type { Post } from "@type/post";
-type Props = Post;
+import { Clock, Tags } from "tabler-icons-react";
+import type { MDXInstance } from "astro";
+type Props = MDXInstance<Post>;
 
 export async function getStaticPaths() {
   const allPosts = await Astro.glob<Post>(
@@ -17,12 +20,79 @@ export async function getStaticPaths() {
   }));
 }
 
-const { Content, frontmatter } = Astro.props;
-const title = frontmatter.title;
-const description = `この記事では、${frontmatter.title}を掲載します。`;
+const {
+  Content,
+  frontmatter: { title, date, tags, thumbnail, slug },
+} = Astro.props;
 ---
 
 <BaseLayout title={title}>
-  <h1>{title}</h1>
-  <Content />
+  <div class="post-basic-info">
+    <span>
+      <Clock size={"1rem"} />
+      {date}
+    </span>
+    <span>
+      <Tags size={"1rem"} />
+      {tags.map((tag) => <a href={`/`}>{tag}</a>)}
+    </span>
+  </div>
+  <h1 class="title">{title}</h1>
+  <img
+    class="thumbnail"
+    src={`/contents/${slug}/${thumbnail}`}
+    alt={`${title}のサムネイル`}
+  />
+  <div class="znc">
+    <Content />
+  </div>
 </BaseLayout>
+
+<style lang="scss" is:global>
+  .post-basic-info svg {
+    stroke: #9ca3af;
+  }
+</style>
+<style lang="scss">
+  .title {
+    font-size: 2rem;
+    text-align: center;
+    margin-block: 1rem;
+    &:after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 1rem;
+      background: #333;
+      margin-block: 1rem 2rem;
+      margin-inline: auto;
+    }
+  }
+  .post-basic-info {
+    font-size: 0.875rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    a {
+      &:hover {
+        color: #3b82f6;
+      }
+    }
+    a,
+    span {
+      color: #9ca3af;
+    }
+    span {
+      display: flex;
+      gap: 0.2rem;
+      align-items: center;
+    }
+  }
+  .thumbnail {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 0 15px 18px -15px rgb(32 32 37 / 25%);
+  }
+</style>
