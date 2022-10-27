@@ -42,14 +42,9 @@ const {
 
 <style lang="scss">
   article {
-    height: 300px;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-
-    @media only screen and (max-width: 37.5rem) {
-      height: 200px;
-    }
   }
   figure {
     margin-bottom: 0.2rem;
@@ -83,7 +78,6 @@ const {
   h3 {
     a {
       font-size: 1.4rem;
-      height: calc(1.4 * 1.4 * 2rem);
       overflow: hidden;
       display: -webkit-box;
       -webkit-box-orient: vertical;
@@ -100,5 +94,6 @@ const {
     align-items: center;
     gap: 0.2rem;
     font-size: 0.75rem;
+    margin-top: auto;
   }
 </style>
