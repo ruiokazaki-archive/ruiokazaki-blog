@@ -9,6 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "deploy": "astro build; firebase deploy",
     "prepare": "husky install"
   },
   "dependencies": {
