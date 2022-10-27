@@ -1,5 +1,6 @@
 ---
 import { BrandTwitter, BrandGithub } from "tabler-icons-react";
+import HorizonalLine from "./HorizonalLine.astro";
 
 const snsIds = {
   twitter: "RuiOkazaki_",
@@ -8,6 +9,9 @@ const snsIds = {
 ---
 
 <footer>
+  <div class="contents-wrap">
+    <HorizonalLine />
+  </div>
   <div>
     Thanks for the visit! &copy; 2020 / Follow:
     <a href={`https://twitter.com/${snsIds.twitter}`} target="_blank">
@@ -34,6 +38,13 @@ const snsIds = {
     align-items: center;
     * {
       color: #9ca3af;
+    }
+  }
+  .contents-wrap {
+    width: 90%;
+    max-width: 62.5rem;
+    @media only screen and (max-width: 37.5rem) {
+      width: 100%;
     }
   }
   div {
