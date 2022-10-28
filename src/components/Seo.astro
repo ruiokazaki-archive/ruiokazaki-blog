@@ -1,0 +1,61 @@
+---
+import { AstroSeo } from "@astrolib/seo";
+
+const TITLE = "RuiOkazaki.blog";
+const DESCRIPTION = "岡崎流依の技術ブログです。";
+const PRODUCTION_URL = "https://blog.ruiokazaki.com";
+const DEVELOPMENT_URL = "http://localhost:3000";
+const THUMBNAIL = "/images/ogp_image_w900_h600.jpg";
+
+type Props = {
+  title?: string;
+  description?: string;
+  thumbnail?: string;
+  url?: string;
+};
+
+const { title, description, thumbnail, url } = Astro.props;
+
+const titleTemplate = (title?: string) => {
+  return title ? `${title} | ${TITLE}` : TITLE;
+};
+const connectUrlWithPath = (path: string) => {
+  switch (import.meta.env.MODE) {
+    case "development":
+      return `${DEVELOPMENT_URL}${path}`;
+      break;
+
+    case "production":
+      return `${PRODUCTION_URL}${path}`;
+      break;
+
+    default:
+      throw new Error("Unknown mode");
+      break;
+  }
+};
+---
+
+<AstroSeo
+  title={titleTemplate(title)}
+  description={description ?? DESCRIPTION}
+  canonical={PRODUCTION_URL}
+  openGraph={{
+    url: url ? connectUrlWithPath(url) : PRODUCTION_URL,
+    title: titleTemplate(title),
+    description: description ?? DESCRIPTION,
+    images: [
+      {
+        url: thumbnail
+          ? connectUrlWithPath(thumbnail)
+          : connectUrlWithPath(THUMBNAIL),
+        type: "image/jpg",
+        alt: titleTemplate(title),
+      },
+    ],
+  }}
+  twitter={{
+    handle: "@ruiokazaki_",
+    cardType: "summary_large_image",
+  }}
+/>
