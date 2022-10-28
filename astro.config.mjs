@@ -7,9 +7,19 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 
 // https://astro.build/config
+import sitemap from "@astrojs/sitemap";
+
+// https://astro.build/config
 export default defineConfig({
+  site: "https://blog.ruiokazaki.com",
   markdown: {
     syntaxHighlight: "shiki",
   },
-  integrations: [mdx(), react()],
+  integrations: [
+    mdx(),
+    react(),
+    sitemap({
+      filter: (page) => page !== "https://blog.ruiokazaki.com/404",
+    }),
+  ],
 });
