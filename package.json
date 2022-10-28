@@ -16,6 +16,7 @@
     "@astrojs/mdx": "^0.11.4",
     "@astrojs/react": "^1.2.1",
     "@astrojs/sitemap": "^1.0.0",
+    "@astrolib/seo": "^0.2.1",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "astro": "^1.5.2",

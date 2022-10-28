@@ -4,6 +4,7 @@ specifiers:
   "@astrojs/mdx": ^0.11.4
   "@astrojs/react": ^1.2.1
   "@astrojs/sitemap": ^1.0.0
+  "@astrolib/seo": ^0.2.1
   "@types/react": ^18.0.21
   "@types/react-dom": ^18.0.6
   astro: ^1.5.2
@@ -22,6 +23,7 @@ dependencies:
   "@astrojs/mdx": 0.11.4
   "@astrojs/react": 1.2.1_pfva2yqwphl3e2f6qzlabaeuhu
   "@astrojs/sitemap": 1.0.0
+  "@astrolib/seo": 0.2.1_astro@1.5.2
   "@types/react": 18.0.22
   "@types/react-dom": 18.0.7
   astro: 1.5.2_sass@1.55.0
@@ -232,6 +234,17 @@ packages:
     dependencies:
       global-agent: 3.0.0
       node-fetch: 3.2.10
+    dev: false
+
+  /@astrolib/seo/0.2.1_astro@1.5.2:
+    resolution:
+      {
+        integrity: sha512-VVN8AMja8RDA9mteHBHYLsf0dmu3qU50G9Shg1Yax7DHbOqpixAjl+teJFBoDg5SUWc/j5k0Ir6ivXIC2ExXlg==,
+      }
+    peerDependencies:
+      astro: ^1.2.1
+    dependencies:
+      astro: 1.5.2_sass@1.55.0
     dev: false
 
   /@babel/code-frame/7.18.6:
