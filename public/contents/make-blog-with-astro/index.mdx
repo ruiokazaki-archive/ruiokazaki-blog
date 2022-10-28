@@ -1,25 +1,95 @@
 ---
-title: "astroでブログを作ったよ"
-description: "astroでブログを作成しました！"
+title: "Astro + MDXでブログを作って得た知見と感じたメリット"
+description: "Astro + MDXでブログを作って得た知見と感じたメリットについての記事です。"
 slug: "make-blog-with-astro"
-date: "2022-10-25"
+date: "2022-10-28"
 tags:
-  - mdx
-  - sample
+  - "astro"
 thumbnail: "thumbnail.jpg"
 ---
 
-## Hello World!
+import L from "@mdxComponents/Link.astro";
+import S from "@mdxComponents/Small.astro";
 
-This is a sample sentence.
+## まえがき
 
-<button>sample</button>
+始めまして！！RuiOkazaki と申します！！<br/> 体調が悪くて寝込んでいる時にコードが書きたくなってしまって、どうせなら普段使わない技術でブログで作ってみようと考え作りました！！<br /> そして出来上がったのがこのブログです。
 
-```tsx
-import { FC } from "react";
-const hoge: FC = () => {
-  return <>sampleOK</>;
-};
+ブログを作ったものの書く内容が無い<s>様</s>なのでブログをどうやって作ったかについて書いていきたいと思います。
 
-export default hoge;
-```
+## 技術スタック
+
+- <L href="https://astro.build/">Astro</L>
+- TypeScript
+- MDX
+- GitHub Actions
+
+で作成しました。<br />`GitHub Actions`で <L href="https://firebase.google.com/?hl=ja">firebase</L> に自動デプロイしています！
+
+元々は CMS である `Nextjs` + `TypeScript` + <L href="https://www.sanity.io/">SANITY</L> を使用するつもりでしたが `Nextjs` + `TypeScript` + <L href="https://microcms.io/">MicroCMS</L> の構成で<L href="https://web-study.blog">ブログを作成したことがあった</L>ので違う技術を使って制作しようと考えました！
+
+そこで自分が選んだ技術が `Astro` + `MDX` です！！
+
+## Astro のここが好き〜！
+
+- <L href="https://docs.astro.build/ja/concepts/islands/">island architecture</L> によって初期で読み込まれる `JavaScript` のファイルサイズが小さい
+- 静的サイトに特化したフレームワークなので学習コストがほとんどない
+  - `Vue` や `React` が敷居高く感じてしまうという方でも簡単に使えそう
+  - 普段から `Vue`や `React` を書いている人はサンプルのコードを見るだけであとは直感で書けます！！！
+    - なんなら `React` 等で作成したコンポーネントをそのまま読み込めちゃいます！！！
+- OSS で開発されているプラグインが豊富（最適化関連 や seo 周り、i18n などたくさん）
+  - 公式が<L href="https://astro.build/integrations/featured/">store ページ</L>を作ってくれてるのでめちゃめちゃ探しやすいです！
+
+## CMS ではなく MDX で記事を書いたことで気付いた旨味
+
+筆者は普段 `CMS`, `MarkDown`, `MDX` など様々な形で記事を書きますが、今回ブログを作成してみて自分でブログを作成する際は MDX がいいんじゃないかなぁと感じました！<br />せっかくなので自分が感じたそれぞれのメリット・デメリットを書いていきたいと思います。
+
+### CMS のメリット・デメリット
+
+**メリット**
+
+- チームや複数人で投稿する形のブログに向いてる
+  - 特にデザイナーさんや Biz 側の人が記事を書く際はリッチテキストエディタが搭載されている点が良さそうだった！
+- 予約投稿や下書きの機能がある
+- 検索周りの `API` が優秀なことが多い（全文検索を自前で実装するのはちょっと大変）
+
+**デメリット**
+
+- お金がかかる場合がある
+- デフォルトではマーメイドなど特殊記法が使えない場合が多い
+
+### MarkDown / MDX の共通するメリット・デメリット
+
+**メリット**
+
+- お金がかからない
+- GitHub で管理できる
+
+**デメリット**
+
+- エンジニア以外が記事を書くのはちょっと大変
+- 全文検索や予約投稿などの機能が必要な場合は自前で実装する必要がある
+- チームで開発するのはちょっと大変そうだから、運用を設計する必要がある
+
+### MDX のメリット・デメリット
+
+**メリット**
+
+- `MarkDown` + `JSX`なので、記事を書く際にコンポーネントを使うことができる！！！！！
+  - 記事によって別途 `style` を当てることができたり、他サイトのリンクをシェアする際にサムネイルを表示することができたりと、記事を書く際に様々なことができるようになります！！！！
+
+**デメリット**
+
+- フロントエンド書き慣れていないとは旨味がないかもしれない…?
+
+## Astro + MDX を使った感想
+
+どちらもガッツリ書いたのは初めてでしたが書き心地がすこぶる良かったです 🥰<br />個人ブログを作っている全人類におすすめしたい構成でした！！！
+
+## さいごに
+
+この記事を書いたのがブログを作り始めて 3 日目なので完全に今の所感です！！！<br />なので今後色々な機能を実装していく中で辛かったポイントなどがあればまた記事にしていきたいと思います〜🥳🥳🥳
+
+コードは全て<L href="https://github.com/RuiOkazaki/ruiokazaki-blog">GitHub で公開</L>しています！<br/>興味がある方は是非見ていってください！<S isImportant>あとスターください！！！！！！</S>
+
+ご覧いただきありがとうございました！！！
