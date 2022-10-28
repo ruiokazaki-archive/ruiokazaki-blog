@@ -6,6 +6,8 @@ const snsIds = {
   twitter: "RuiOkazaki_",
   github: "RuiOkazaki",
 };
+
+const year = new Date().getFullYear();
 ---
 
 <footer>
@@ -13,7 +15,7 @@ const snsIds = {
     <HorizonalLine />
   </div>
   <div>
-    Thanks for the visit! &copy; 2020 / Follow:
+    Thanks for the visit! &copy; {year} / Follow:
     <a href={`https://twitter.com/${snsIds.twitter}`} target="_blank">
       <BrandTwitter size={"1.1rem"} />
     </a>
