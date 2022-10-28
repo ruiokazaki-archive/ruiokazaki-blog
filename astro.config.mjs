@@ -9,6 +9,8 @@ import react from "@astrojs/react";
 // https://astro.build/config
 import sitemap from "@astrojs/sitemap";
 
+import partytown from "@astrojs/partytown";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://blog.ruiokazaki.com",
@@ -20,6 +22,11 @@ export default defineConfig({
     react(),
     sitemap({
       filter: (page) => page !== "https://blog.ruiokazaki.com/404",
+    }),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
     }),
   ],
 });
