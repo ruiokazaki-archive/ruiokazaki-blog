@@ -1,0 +1,16 @@
+---
+type Props = {
+  isImportant: boolean;
+};
+const { isImportant } = Astro.props;
+---
+
+<small class={isImportant === true ? "important" : ""}>
+  <slot />
+</small>
+
+<style>
+  .important {
+    color: #ef4444;
+  }
+</style>
