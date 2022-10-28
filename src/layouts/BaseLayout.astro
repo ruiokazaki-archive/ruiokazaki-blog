@@ -1,5 +1,6 @@
 ---
 import BlogTitle from "@components/BlogTitle.astro";
+import Favicon from "@components/Favicon.astro";
 import HorizonalLine from "@components/HorizonalLine.astro";
 import SiteFooter from "@components/SiteFooter.astro";
 import SiteHeader from "@components/SiteHeader.astro";
@@ -21,6 +22,7 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <Favicon />
     <title>{titleTemplate(title)}</title>
   </head>
   <SiteHeader />
