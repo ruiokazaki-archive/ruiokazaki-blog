@@ -22,11 +22,16 @@ export async function getStaticPaths() {
 
 const {
   Content,
-  frontmatter: { title, date, tags, thumbnail, slug },
+  frontmatter: { title, description, date, tags, thumbnail, slug },
 } = Astro.props;
 ---
 
-<BaseLayout title={title}>
+<BaseLayout
+  title={title}
+  thumbnail={`/contents/${slug}/${thumbnail}`}
+  url={`/post/${slug}`}
+  description={`${description} | 関連ワード：${tags.join(", ")}`}
+>
   <div class="post-basic-info">
     <span>
       <Clock size={"1rem"} />
