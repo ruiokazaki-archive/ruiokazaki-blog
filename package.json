@@ -4,12 +4,11 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "dev": "astro dev --host",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
     "deploy": "astro build; firebase deploy",
+    "astro": "astro",
     "prepare": "husky install"
   },
   "dependencies": {
