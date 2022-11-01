@@ -22,9 +22,11 @@ const {
   Content,
   frontmatter: { title, description, date, tags, thumbnail, slug },
 } = Astro.props;
+
+const thumbnailPath = thumbnail ? `/contents/${slug}/${thumbnail}` : "/images/ogp_image_w900_h600.jpg";
 ---
 
-<BaseLayout title={title} thumbnail={thumbnail ? `/contents/${slug}/${thumbnail}` : "/images/ogp_image_w900_h600.jpg"} url={`/post/${slug}`} description={`${description} | 関連ワード：${tags.join(", ")}`}>
+<BaseLayout title={title} thumbnail={thumbnailPath} url={`/post/${slug}`} description={`${description} | 関連ワード：${tags.join(", ")}`}>
   <div class="post-basic-info">
     <span>
       <Clock size={"1rem"} />
@@ -36,7 +38,7 @@ const {
     </span>
   </div>
   <h1 class="title">{title}</h1>
-  <img class="thumbnail" src={`/contents/${slug}/${thumbnail}`} alt={`${title}のサムネイル`} />
+  <img class="thumbnail" src={thumbnailPath} alt={`${title}のサムネイル`} />
   <div class="znc">
     <Content />
   </div>

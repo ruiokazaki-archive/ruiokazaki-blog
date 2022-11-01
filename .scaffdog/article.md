@@ -16,8 +16,8 @@ description: "{{ inputs.title }}についての記事です。"
 slug: "{{ inputs.slug | kebab }}"
 date: "{{date "YYYY-MM-DD"}}"
 tags:
-  - ""
-thumbnail: "thumbnail.jpg"
+  - "サンプル"
+thumbnail: ""
 ---
 
 import L from "@mdxComponents/Link.astro";
