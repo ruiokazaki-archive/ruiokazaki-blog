@@ -9,14 +9,14 @@ type Props = { post: MDXInstance<Post> };
 const { post } = Astro.props;
 
 const {
-  frontmatter: { slug, title, date, tags },
+  frontmatter: { slug, title, date, tags, thumbnail },
 } = post;
 ---
 
 <article>
   <figure>
     <a href={`/post/${slug}`}>
-      <img src={"/contents/make-blog-with-astro/thumbnail.jpg"} alt="" />
+      <img src={thumbnail ? `/contents/${slug}/${thumbnail}` : "/images/ogp_image_w900_h600.jpg"} alt="" />
     </a>
   </figure>
   <div class="tags">
