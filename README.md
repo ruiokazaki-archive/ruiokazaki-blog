@@ -35,10 +35,11 @@ Blog looks for `.mdx` files in the `public/contents/` directory. Each page is ex
 
 All commands are run from the root of the project, from a terminal:
 
-| Command        | Action                                                                             |
-| :------------- | :--------------------------------------------------------------------------------- |
-| `pnpm install` | Installs dependencies                                                              |
-| `pnpm dev`     | Starts local dev server at `localhost:3000`                                        |
-| `pnpm build`   | Build your production site to `./dist/`                                            |
-| `pnpm preview` | Preview your build locally, before deploying                                       |
-| `pnpm deploy`  | Deploy to firebase. Actually, it is deployed by GitHub Actions, so it is not used. |
+| Command         | Action                                                                             |
+| :-------------- | :--------------------------------------------------------------------------------- |
+| `pnpm install`  | Installs dependencies                                                              |
+| `pnpm dev`      | Starts local dev server at `localhost:3000`                                        |
+| `pnpm build`    | Build your production site to `./dist/`                                            |
+| `pnpm preview`  | Preview your build locally, before deploying                                       |
+| `pnpm deploy`   | Deploy to firebase. Actually, it is deployed by GitHub Actions, so it is not used. |
+| `pnpm new-post` | Write a new article                                                                |
